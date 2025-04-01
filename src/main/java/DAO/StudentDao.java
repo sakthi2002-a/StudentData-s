@@ -19,14 +19,14 @@ public class StudentDao {
 	}
 //	saveAdmin method
 	
-	public static int saveStudent(int id,String name,int physics,int chemistry,int maths) throws ClassNotFoundException, SQLException {
+	public static int saveStudent(int id,String name,double physics,double chemistry,double maths) throws ClassNotFoundException, SQLException {
 		Connection con=getcon();
 		PreparedStatement ps=con.prepareStatement("insert into student values(?,?,?,?,?)");
 		ps.setInt(1,id);
 		ps.setString(2, name);
-		ps.setInt(3,physics);
-		ps.setInt(4, chemistry);
-		ps.setInt(5, maths);
+		ps.setDouble(3,physics);
+		ps.setDouble(4, chemistry);
+		ps.setDouble(5, maths);
 		int res=ps.executeUpdate();
 		return res;
 	}
@@ -39,6 +39,7 @@ public class StudentDao {
 		int rs=pr.executeUpdate();
 		return rs;
 	}
+	
 //	Find Student method
 	
 	public static StudentDto findStudent(int id) throws ClassNotFoundException, SQLException {
@@ -47,7 +48,7 @@ public class StudentDao {
 		pr.setInt(1, id);
 		ResultSet rs=pr.executeQuery();
 		while(rs.next()) {
-			StudentDto st=new StudentDto(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getInt(5));
+			StudentDto st=new StudentDto(rs.getInt(1),rs.getString(2),rs.getDouble(3),rs.getDouble(4),rs.getDouble(5));
 			return st;
 		}
 		return null;
@@ -62,11 +63,31 @@ public class StudentDao {
 	    
 	    List<StudentDto> li = new ArrayList<>();
 	    while (rs.next()) {
-	        StudentDto st = new StudentDto(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5));
+	        StudentDto st = new StudentDto(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getDouble(4), rs.getDouble(5));
 	        li.add(st);
 	    }
 	    return li;
 	}
+	
+//	update method
+	
+	public static boolean updateStudent(StudentDto student) throws ClassNotFoundException, SQLException {
+	    Connection conn = getcon();
+	    String query = "UPDATE student SET name=?, physics=?, chemistry=?, maths=? WHERE id=?";
+	    PreparedStatement ps = conn.prepareStatement(query);
+	    
+	    ps.setString(1, student.getName());
+	    ps.setDouble(2, student.getPhysics());
+	    ps.setDouble(3, student.getChemistry());
+	    ps.setDouble(4, student.getMaths());
+	    ps.setInt(5, student.getId());
+
+	    int rowsUpdated = ps.executeUpdate();
+	    conn.close();
+	    return rowsUpdated > 0;
+	}
+
+
 
 //	Save Admin method
 	
@@ -96,6 +117,9 @@ public class StudentDao {
 			return false;
 		}
 	}
+	
+
+
 
 	
 	

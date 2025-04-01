@@ -5,9 +5,9 @@ public class StudentDto {
 //	Declare the datamembers
 	private int id;
 	private String name;
-	private int physics;
-	private int chemistry;
-	private int maths;
+	private double physics;
+	private double chemistry;
+	private double maths;
 	
 //	Getter and Setter methods
 	public int getId() {
@@ -22,34 +22,32 @@ public class StudentDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPhysics() {
+	public double getPhysics() {
 		return physics;
 	}
-	public void setPhysics(int physics) {
+	public void setPhysics(double physics) {
 		this.physics = physics;
 	}
-	public int getChemistry() {
+	public double getChemistry() {
 		return chemistry;
 	}
-	public void setChemistry(int chemistry) {
+	public void setChemistry(double chemistry) {
 		this.chemistry = chemistry;
 	}
-	public int getMaths() {
+	public double getMaths() {
 		return maths;
 	}
-	public void setMaths(int maths) {
+	public void setMaths(double maths) {
 		this.maths = maths;
 	}
-//	constructor
-	public StudentDto(int id, String name, int physics, int chemistry, int maths) {
+	
+//	cunstructor
+	public StudentDto(int id, String name, double physics, double chemistry, double maths) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.physics = physics;
 		this.chemistry = chemistry;
 		this.maths = maths;
-	}
-	
-	
-	
+	}	
 }

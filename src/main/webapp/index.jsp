@@ -4,53 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Index Page</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
         }
 
         .container {
             background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
             text-align: center;
-            width: 300px;
+            width: 100%;
+            max-width: 350px;
+            animation: fadeIn 0.8s ease-in-out;
         }
 
         h2 {
-            color: #333;
             margin-bottom: 20px;
         }
 
-        .link-button {
-            display: block;
-            background-color: #007BFF;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            margin: 10px 0;
-            transition: background 0.3s;
+        .btn-custom {
+            width: 100%;
+            font-size: 18px;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
         }
 
-        .link-button:hover {
-            background-color: #0056b3;
+        .btn-custom:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Select Login</h2>
-        <a href="adminLogin.jsp" class="link-button">ADMIN</a>
-        <a href="studentLogin.jsp" class="link-button">STUDENT</a>
+        <h2 class="text-primary fw-bold">Select Login</h2>
+        <a href="adminLogin.jsp" class="btn btn-primary btn-custom">ADMIN</a>
+        <a href="studentLogin.jsp" class="btn btn-success btn-custom">STUDENT</a>
     </div>
 </body>
 </html>
