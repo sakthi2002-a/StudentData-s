@@ -3,6 +3,7 @@ package DTO;
 public class StudentDto {
 	
 //	Declare the datamembers
+	
 	private int id;
 	private String name;
 	private double physics;
@@ -41,7 +42,7 @@ public class StudentDto {
 		this.maths = maths;
 	}
 	
-//	cunstructor
+//	constructor
 	public StudentDto(int id, String name, double physics, double chemistry, double maths) {
 		super();
 		this.id = id;

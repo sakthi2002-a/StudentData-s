@@ -23,7 +23,7 @@ public class addStudent extends HttpServlet {
             int result = StudentDao.saveStudent(id, name, physics, chemistry, maths);
 
             if (result == 1) {
-                // Redirect to adminHome.jsp after successful insertion
+                
                 resp.sendRedirect("adminHome.jsp?message=Student+Added+Successfully");
             } else {
                 req.setAttribute("message", "Failed to add student. Try again.");
